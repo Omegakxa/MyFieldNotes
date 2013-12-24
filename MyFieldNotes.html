@@ -1,0 +1,146 @@
+﻿<!DOCTYPE HTML>
+<html manifest="OfflineApp.appcache">
+<head>
+<meta charset="utf-8">
+<title>Project2</title>
+<meta name="generator" content="NSB/AppStudio 3.3.0.0$mdwk" />
+<meta name="date" content="2013-12-24 16:27:53.138000" />
+<meta name="version" content="1.0.0" />
+<meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="YES" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="">
+<meta name="copyright" content="Copyright 2013 Empresa ABC" />
+<link rel="apple-touch-icon" href="nsb/images/LauncherIcon57.png" />
+<link rel="apple-touch-startup-image" href="nsb/images/SplashScreen.png" />
+<link rel="shortcut icon" sizes="196x196" href="nsb/images/196.png"/>
+<script src="nsb/hfunc.js"></script>
+<script src="nsb/messages.js"></script>
+<link href="nsb/nsbstyle.css" rel="stylesheet">
+<script src="nsb/fastclick.js"></script>
+<script src="nsb/iscroll.js"></script>
+<link href="nsb/css/style.css" rel="stylesheet">
+<script src="nsb/complexfunctions.js"></script>
+
+
+
+<style type="text/css">
+#HTMLview1_scroller {position: absolute; width:276px; height:282px; left:18px; top:53px;}
+#HTMLview1 {position:absolute; left:0px; top:0px; height:282px; width:276px}
+#TitleBar1 {position:absolute; left:91px; right:auto; top:17px; bottom:auto; height:0px; width:0px}
+#Button1 {position:absolute; left:88px; right:auto; top:417px; bottom:auto; height:31px; width:133px}
+#TextArea1 {position:absolute; left:19px; right:auto; top:347px; bottom:auto; height:58px; width:281px}
+#CheckBox1 {position:absolute; left:8px; right:auto; top:65px; bottom:auto; height:44px; width:300px}
+#TitleBar2 {position:absolute; left:126px; right:auto; top:22px; bottom:auto; height:0px; width:0px}
+#ButtonBar1 {position:absolute; left:0px; top:415px; height:20px; width:100%}
+#Label1 {position:absolute; left:76px; right:auto; top:375px; bottom:auto; height:20px; width:183px}
+#TitleBar3 {position:absolute; left:261px; right:auto; top:34px; bottom:auto; height:0px; width:0px}
+body * {font-family:helvetica}
+</style>
+</head>
+<body style="margin:0px;">
+<script>window.addEventListener('load', function() {new FastClick(document.body)}, false)</script>
+<div data-role="page" id="Page_MyFieldNotes" data-theme="c" style="">
+<form id="Form1" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script>
+Form1.innerHTML=[  "<div id='HTMLview1_scroller' class=''   style='font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; border-style:groove;' name=''><div id='HTMLview1' style='overflow:auto; background-color:white; height:auto; min-width:276px;'><b>HTMLview com rolagem</b></div></div>",
+  NSB.TitleBar("TitleBar1", "MyFieldNotes", "leftnav", "rightnav", "New", "Settings", " style= class=default"),
+  "<input type='button' id='Button1' class='nsbbutton'   style='font-size:12px; font-family:helvetica; font-style:normal; font-weight:bold; color:; background-color:; ' name='' value='Button' data-role='none'>",
+  "<textarea id='TextArea1' class='' name=''  style='text-align:left; font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; background-color:white;-webkit-overflow-scrolling:touch; '   autocorrect='on'  autocomplete='on'  autocapitalize='on'  placeholder='Digite seu texto aqui' data-role='none'></textarea>",
+  ].join('');
+</script>
+</form>
+<form id="Form2" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script>
+Form2.innerHTML=[  NSB.Checkbox('CheckBox1', 300, 'Display Date, Auto-clear text, Auto-capitalize,Auto-complete,Auto-correct,Add GPS Coordinates', style='' ),
+  NSB.TitleBar("TitleBar2", "Title Bar", "leftnav", "rightnav", "Home,Left", "Home,Right", " style= class=default"),
+  NSB.ButtonBar("ButtonBar1", "true", "Email,Print", "0", " style= "),
+  "<label id='Label1' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparente; border-style:;border-color:transparent;border-width:1px; ' >Export via:</label>",
+  ].join('');
+</script>
+</form>
+<form id="Form3" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script>
+Form3.innerHTML=[  NSB.TitleBar("TitleBar3", "Title Bar", "leftnav", "rightnav", "Home,Left", "Home,Right", " style= class=default"),
+  ].join('');
+</script>
+</form>
+</div>
+<script>
+(function(){var all=document.getElementsByTagName('*');for(var i=0;i<all.length;i++)if(typeof all[i].id!='undefined'&&typeof window[all[i].id]=='undefined')window[all[i].id]=all[i];})()
+browserWarningMessage('Please use Google Chrome, Apple Safari or another supported browser.');
+if (navigator.userAgent.indexOf('iPad') !== -1) {
+  var splashscreen = document.createElement('link');
+  splashscreen.rel = 'apple-touch-startup-image';
+  splashscreen.href = '';
+  document.getElementsByTagName('head')[0].appendChild(splashscreen);
+}
+
+window.addEventListener('load', function() {
+  Form1.style.display = 'block';
+  if (false) {HTMLview1_ref = new iScroll('HTMLview1_scroller',{ bounce: false, zoom:true });
+    HTMLview1.refresh=function(){setTimeout(HTMLview1_ref.refresh(),100)}}
+  NSB.addProperties(HTMLview1,HTMLview1_scroller);
+  NSB.TitleBar_init('TitleBar1','New','Settings');
+  NSB.addProperties(TitleBar1);
+  NSB.addProperties(Button1);
+
+  TextArea1.ontouchmove=function(e){e.stopPropagation()};NSB.addProperties(TextArea1);
+  Form1.style.display = 'none';
+}, false);
+Form1.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
+NSB.addProperties(Form1);
+
+window.addEventListener('load', function() {
+  Form2.style.display = 'block';
+  NSB.Checkbox_init(CheckBox1,300);
+  NSB.addProperties(CheckBox1);
+  NSB.TitleBar_init('TitleBar2','Home,Left','Home,Right');
+  NSB.addProperties(TitleBar2);
+  NSB.ButtonBar_init(ButtonBar1,'Email,Print');
+  NSB.addProperties(ButtonBar1);
+
+
+  NSB.addProperties(Label1);
+  Form2.style.display = 'none';
+}, false);
+Form2.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
+NSB.addProperties(Form2);
+
+window.addEventListener('load', function() {
+  Form3.style.display = 'block';
+  NSB.TitleBar_init('TitleBar3','Home,Left','Home,Right');
+  NSB.addProperties(TitleBar3);
+  Form3.style.display = 'none';
+}, false);
+Form3.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
+NSB.addProperties(Form3);
+
+//function openDB() {
+// var  sqlList;
+//  DB = SqlOpenDatabase("fnotes.db" ,"1.0" ,"FieldNotes Database");
+//  if(DB!=0) {
+//    sqlList=[];
+//    sqlList[0]=["CREATE TABLE IF NOT EXISTS notes(id INTEGER PRIMARY KEY AUTOINCREMENT, dts TEXT, geo TEXT, data TEXT);" ,,skipError];
+//    Sql(DB, sqlList);
+//}
+//
+//function skipError(transaction, results) {
+//     _msgbox_confirm("DB Error: "  +  results.message  +  "("  +  results.code  +  ")");
+//}
+
+window.addEventListener('load', function() {
+  Form1.style.display = 'block';
+  Main();
+  if (typeof(Form1.onshow)=='function') Form1.onshow();
+  
+}, false);
+
+var NSBCurrentForm = Form1;
+
+
+</script>
+
+</body>
+</html>
