@@ -2,9 +2,9 @@
 <html manifest="OfflineApp.appcache">
 <head>
 <meta charset="utf-8">
-<title>Project2</title>
+<title>MyFieldNotes</title>
 <meta name="generator" content="NSB/AppStudio 3.3.0.0$mdwk" />
-<meta name="date" content="2013-12-24 16:27:53.138000" />
+<meta name="date" content="2013-12-24 16:35:19.429000" />
 <meta name="version" content="1.0.0" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
@@ -117,18 +117,93 @@ window.addEventListener('load', function() {
 Form3.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
 NSB.addProperties(Form3);
 
-//function openDB() {
-// var  sqlList;
-//  DB = SqlOpenDatabase("fnotes.db" ,"1.0" ,"FieldNotes Database");
-//  if(DB!=0) {
-//    sqlList=[];
-//    sqlList[0]=["CREATE TABLE IF NOT EXISTS notes(id INTEGER PRIMARY KEY AUTOINCREMENT, dts TEXT, geo TEXT, data TEXT);" ,,skipError];
-//    Sql(DB, sqlList);
-//}
-//
-//function skipError(transaction, results) {
-//     _msgbox_confirm("DB Error: "  +  results.message  +  "("  +  results.code  +  ")");
-//}
+function openDB() {
+ var  sqlList;
+  DB = SqlOpenDatabase("fnotes.db" ,"1.0" ,"FieldNotes Database");
+  if(DB!=0) {
+    sqlList=[];
+    sqlList[0]=["CREATE TABLE IF NOT EXISTS notes(id INTEGER PRIMARY KEY AUTOINCREMENT, dts TEXT, geo TEXT, data TEXT);" ,,skipError];
+    Sql(DB, sqlList);
+  }
+}
+
+function skipError(transaction, results) {
+     _msgbox_confirm("DB Error: "  +  results.message  +  "("  +  results.code  +  ")");
+}
+
+function zapDB() {
+ //This function drops & recreates the database.
+ //We should warn the user all data will be lost
+ var  sqlList;
+  DB = SqlOpenDatabase("fnotes.db" ,"1.0" ,"FieldNotes Database");
+  if(DB!=0) {
+    sqlList=[];
+    sqlList[0]=["DROP TABLE notes;" ,,skipError];
+    sqlList[1]=["CREATE TABLE IF NOT EXISTS notes(id INTEGER PRIMARY KEY AUTOINCREMENT, dts TEXT, geo TEXT, data TEXT);"];
+ //Now, execute all the commands!
+    Sql(DB, sqlList);
+  }
+}
+
+function insertData(sTime, sGeo, sData) {
+   var  q;
+   var  s;
+   var  sqlList;
+   var  tempTime;
+   var  tempGeo;
+   var  tempData;
+    q = Chr(34);
+    tempTime = q  +  sTime  +  q;
+    tempGeo = q  +  sGeo  +  q;
+    tempData = q  +  sData  +  q;
+    s = "INSERT INTO notes(dts, geo, data) VALUES(" + tempTime + "," + tempGeo + "," + tempData + ");";
+    sqlList=[];
+    sqlList[0] = [s,dataHandler,skipError];
+ //MsgBox s
+    Sql(DB, sqlList);
+ }
+ 
+function readData() {
+   var  q;
+   var  s;
+   var  sqlList;
+
+    s = "SELECT dts, geo, data FROM notes;";
+    sqlList=[];
+    sqlList[0] = [s,dataLoader,skipError];
+    Sql(DB, sqlList);
+}
+
+function dataLoader(transaction, results) {
+ // callback function
+ //Called On completion of Sql SELECT command
+ var  xDTS;
+ var  xGeo;
+ var  xDat;
+
+  DBRecords = results;
+   for   (iRec=0; iRec <= DBRecords.rows.length - 1; iRec++) {
+    xDTS = DBRecords.rows.item(iRec)["dts"];
+    xGeo = DBRecords.rows.item(iRec)["geo"];
+    xDat = DBRecords.rows.item(iRec)["data"];
+    wrapData(xDTS,xGeo,xDat);
+  }
+
+ // scroll to the added data
+  HTMLview1_ref.scrollTo( 0, HTMLview1_ref.maxScrollY, 0 );
+  HTMLview1.refresh();
+}
+
+function listData() {
+   var  q;
+   var  s;
+   var  sqlList;
+
+    s = "SELECT dts, geo, data FROM notes;";
+    sqlList=[];
+    sqlList[0] = [s,dataLister,skipError];
+    Sql(DB, sqlList);
+ }
 
 window.addEventListener('load', function() {
   Form1.style.display = 'block';
