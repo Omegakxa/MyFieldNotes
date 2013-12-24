@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>MyFieldNotes</title>
 <meta name="generator" content="NSB/AppStudio 3.3.0.0$mdwk" />
-<meta name="date" content="2013-12-24 16:50:19.149000" />
+<meta name="date" content="2013-12-24 18:20:47.401000" />
 <meta name="version" content="1.0.0" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
@@ -26,15 +26,16 @@
 
 
 <style type="text/css">
-#HTMLview1_scroller {position: absolute; width:276px; height:282px; left:18px; top:53px;}
-#HTMLview1 {position:absolute; left:0px; top:0px; height:282px; width:276px}
+#HTMLview1_scroller {position: absolute; width:276px; height:192px; left:18px; top:48px;}
+#HTMLview1 {position:absolute; left:0px; top:0px; height:192px; width:276px}
 #TitleBar1 {position:absolute; left:91px; right:auto; top:17px; bottom:auto; height:0px; width:0px}
 #Button1 {position:absolute; left:88px; right:auto; top:417px; bottom:auto; height:31px; width:133px}
 #TextArea1 {position:absolute; left:19px; right:auto; top:347px; bottom:auto; height:58px; width:281px}
+#Label1 {position:absolute; left:20px; right:auto; top:318px; bottom:auto; height:20px; width:279px}
 #CheckBox1 {position:absolute; left:8px; right:auto; top:65px; bottom:auto; height:44px; width:300px}
 #TitleBar2 {position:absolute; left:126px; right:auto; top:22px; bottom:auto; height:0px; width:0px}
 #ButtonBar1 {position:absolute; left:0px; top:415px; height:20px; width:100%}
-#Label1 {position:absolute; left:76px; right:auto; top:375px; bottom:auto; height:20px; width:183px}
+#Label2 {position:absolute; left:76px; right:auto; top:375px; bottom:auto; height:20px; width:183px}
 #TitleBar3 {position:absolute; left:261px; right:auto; top:34px; bottom:auto; height:0px; width:0px}
 body * {font-family:helvetica}
 </style>
@@ -44,10 +45,11 @@ body * {font-family:helvetica}
 <div data-role="page" id="Page_MyFieldNotes" data-theme="c" style="">
 <form id="Form1" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script>
-Form1.innerHTML=[  "<div id='HTMLview1_scroller' class=''   style='font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; border-style:groove;' name=''><div id='HTMLview1' style='overflow:auto; background-color:white; height:auto; min-width:276px;'><b>HTMLview com rolagem</b></div></div>",
+Form1.innerHTML=[  "<div id='HTMLview1_scroller' class=''   style='font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; border-style:groove;' name=''><div id='HTMLview1' style='overflow:auto; background-color:white; height:auto; min-width:276px;'></div></div>",
   NSB.TitleBar("TitleBar1", "MyFieldNotes", "leftnav", "rightnav", "New", "Settings", " style= class=default"),
   "<input type='button' id='Button1' class='nsbbutton'   style='font-size:12px; font-family:helvetica; font-style:normal; font-weight:bold; color:; background-color:; ' name='' value='Button' data-role='none'>",
   "<textarea id='TextArea1' class='' name=''  style='text-align:left; font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; background-color:white;-webkit-overflow-scrolling:touch; '   autocorrect='on'  autocomplete='on'  autocapitalize='on'  placeholder='Digite seu texto aqui' data-role='none'></textarea>",
+  "<label id='Label1' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparente; border-style:;border-color:transparent;border-width:1px; ' >...</label>",
   ].join('');
 </script>
 </form>
@@ -56,7 +58,7 @@ Form1.innerHTML=[  "<div id='HTMLview1_scroller' class=''   style='font-size:13p
 Form2.innerHTML=[  NSB.Checkbox('CheckBox1', 300, 'Display Date, Auto-clear text, Auto-capitalize,Auto-complete,Auto-correct,Add GPS Coordinates', style='' ),
   NSB.TitleBar("TitleBar2", "Title Bar", "leftnav", "rightnav", "Home,Left", "Home,Right", " style= class=default"),
   NSB.ButtonBar("ButtonBar1", "true", "Email,Print", "0", " style= "),
-  "<label id='Label1' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparente; border-style:;border-color:transparent;border-width:1px; ' >Export via:</label>",
+  "<label id='Label2' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparente; border-style:;border-color:transparent;border-width:1px; ' >Export via:</label>",
   ].join('');
 </script>
 </form>
@@ -87,6 +89,9 @@ window.addEventListener('load', function() {
   NSB.addProperties(Button1);
 
   TextArea1.ontouchmove=function(e){e.stopPropagation()};NSB.addProperties(TextArea1);
+
+
+  NSB.addProperties(Label1);
   Form1.style.display = 'none';
 }, false);
 Form1.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
@@ -122,13 +127,13 @@ sHStyle = "<style type='text/css'>p.a{padding:0;margin:0;width:100%;text-align:L
 sHStyle = sHStyle + "line-height:20px;border-bottom:1px solid #ccc;border-top:1px solid #fff;";
 sHStyle = sHStyle + "background-color:#fafafa;font-size:14px;}</style>";
 
-pButton = "<form><input type='button' value='Print this page' onClick='window.print()'></form>";
 
 
-function Main() {
- // get user prefs
-  ReadLocalStorage();
+
+function frp() {
+   alert("functi frp");
 }
+
 
 function yesNoDone(result) {
   if(result==6) {
@@ -137,28 +142,26 @@ function yesNoDone(result) {
  
     zapDB();
   }
-}
+}
+
+//
 Form1.onshow=function(){
     TextArea1.autocapitalize = bAutoCapitalize;
     TextArea1.autocomplete = bAutoComplete;
     TextArea1.autocorrect = bAutoCorrect;
-//    if(bGPSCoords == True) {
+//    If(bGPSCoords == True) {
 //      GPSStart();
-// } else {
+// } Else {
 //      GPSStop();
 //    }
 
     if(bFirstTime == True) {
- // indicate we have already loaded
       bFirstTime = False;
- // connect to DB - create if needed
+      
       openDB();
- // DEBUG: create the db & drop any existing data
- //''initDB() // DEBUG USE ONLY
- // End DEBUG
- // clear out the list
+ 
       HTMLview1.innerHTML = sHStyle;
- // fill the list with DB data
+ 
       readData();
     }
 }
@@ -168,16 +171,18 @@ Button1.onclick=function(){
 
   if(TextArea1.value == "") {
     Label1.textContent = "No data entered";
-     return savethefunction_rvar;
+     return;
  } else {
     Label1.textContent = "";
   }
 
-  if(bShowDate == True) {
-    dts = Format(dateadd("s",0,new Date()),"YYYY-MM-DD HH:NN:SS");
- } else {
-    dts = Format(dateadd("s",0,new Date()),"HH:NN:SS");
-  }
+ 
+//  if(bShowDate == True) {
+//    dts = Format(DateAdd("s",0,new Date()),"YYYY-MM-DD HH:NN:SS");
+// } else {
+    dts = FormatDateTime (new Date(),"yyyy-mm-dd") ;//Format("s",0,new Date()),"HH:NN:SS");
+//  }
+//  dts = ""
 
   txt = TextArea1.value;
 
@@ -195,18 +200,54 @@ Button1.onclick=function(){
 
   dat = "<p class='a'>" + dts + "<br/>" + geo2 + "<b>" + txt + "</b>";
 
+
  // add the formatted data
   HTMLview1.innerHTML = HTMLview1.innerHTML + dat;
  // make sure view gets resized
   HTMLview1.refresh();
- // scroll to the added data
-  HTMLview1_ref.scrollTo( 0, HTMLview1_ref.maxScrollY, 0 );
-  HTMLview1.refresh();
 
- // add to db (TODO: geo)
-  insertData(dts, geo, txt);
+ // scroll To the added data
+  // HTMLview1_ref.scrollTo( 0, HTMLview1_ref.maxScrollY, 0 );
+  //HTMLview1_ref.scrollTo(0, HTMLview1.clientHeight);
+  //HTMLview1.refresh();
+
+ // add To db (TODO: geo)
+  insertData(dts, geo, txt);
+  
 }
 
+TitleBar1.onclick=function(choice){
+   
+  if(trim(choice) == "Settings") {
+    ChangeForm(Form2);
+  }
+
+  if(trim(choice) == "New") {
+   var  warnmsg;
+    warnmsg = "Erase the existing notes? All data will be lost!";
+    NSB.MsgBox(yesNoDone,warnmsg, 4+32, "FieldNotes");
+  }
+}
+
+
+
+function insertData(sTime, sGeo, sData) {
+   var  q;
+   var  s;
+   var  sqlList;
+   var  tempTime;
+   var  tempGeo;
+   var  tempData;
+    q = Chr(34);
+    tempTime = q  +  sTime  +  q;
+    tempGeo = q  +  sGeo  +  q;
+    tempData = q  +  sData  +  q;
+    s = "INSERT INTO notes(dts, geo, data) VALUES(" + tempTime + "," + tempGeo + "," + tempData + ");";
+    sqlList=[];
+    sqlList[0] = [s,dataHandler,skipError];
+// alert(s);
+    Sql(DB, sqlList);
+}
 window.addEventListener('load', function() {
   Form2.style.display = 'block';
   NSB.Checkbox_init(CheckBox1,300);
@@ -217,7 +258,7 @@ window.addEventListener('load', function() {
   NSB.addProperties(ButtonBar1);
 
 
-  NSB.addProperties(Label1);
+  NSB.addProperties(Label2);
   Form2.style.display = 'none';
 }, false);
 Form2.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
@@ -242,6 +283,12 @@ function openDB() {
   }
 }
 
+function Main() {
+  
+   ReadLocalStorage();
+   
+}
+
 function skipError(transaction, results) {
      _msgbox_confirm("DB Error: "  +  results.message  +  "("  +  results.code  +  ")");
 }
@@ -260,23 +307,7 @@ function zapDB() {
   }
 }
 
-function insertData(sTime, sGeo, sData) {
-   var  q;
-   var  s;
-   var  sqlList;
-   var  tempTime;
-   var  tempGeo;
-   var  tempData;
-    q = Chr(34);
-    tempTime = q  +  sTime  +  q;
-    tempGeo = q  +  sGeo  +  q;
-    tempData = q  +  sData  +  q;
-    s = "INSERT INTO notes(dts, geo, data) VALUES(" + tempTime + "," + tempGeo + "," + tempData + ");";
-    sqlList=[];
-    sqlList[0] = [s,dataHandler,skipError];
- //MsgBox s
-    Sql(DB, sqlList);
- }
+
  
 function readData() {
    var  q;
@@ -366,7 +397,7 @@ function wrapData(t,g,d) {
 function dataHandler(transaction, results) {
  //Called On completion of Sql command
   DBRecords = results;
- //Label1.textContent = "Recs created: " & DBRecords.rows.length 
+ Label1.textContent = "Recs created: " & DBRecords.rows.length 
 }
 
 function SaveLocalStorage() {
@@ -410,6 +441,7 @@ function SaveLocalStorage() {
 
 function ReadLocalStorage() {
 
+
  // read saved settings from storage
   if(localStorage.showDate == "Y") {
     bShowDate = True;
@@ -446,7 +478,8 @@ function ReadLocalStorage() {
  } else {
     bGPSCoords = False;
   }
- }
+
+}
  
 function initDB() {
  //This function creates the database if it does not exist already.
