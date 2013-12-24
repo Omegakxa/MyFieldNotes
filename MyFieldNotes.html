@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>MyFieldNotes</title>
 <meta name="generator" content="NSB/AppStudio 3.3.0.0$mdwk" />
-<meta name="date" content="2013-12-24 16:35:19.429000" />
+<meta name="date" content="2013-12-24 16:50:19.149000" />
 <meta name="version" content="1.0.0" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
@@ -91,6 +91,121 @@ window.addEventListener('load', function() {
 }, false);
 Form1.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
 NSB.addProperties(Form1);
+Form1.style.display="block";
+var NSBCurrentForm=Form1;
+var  bShowDate;
+var  bAutoClear;
+var  bAutoCapitalize;
+var  bAutoCorrect;
+var  bAutoComplete;
+var  bGPSCoords;
+var  sHStyle;
+var  pButton;
+var  gps;
+var  gLat;
+var  gLon;
+var  gAcc;
+var  lastRefresh;
+var  bFirstTime;
+var  qq;
+var  bigString;
+
+qq = Chr(34);
+gLat = -79.20989561;
+gLon = 43.73768353;
+gAcc = 0;
+lastRefresh=0;
+ // indicate we have started the program
+bFirstTime = True;
+
+sHStyle = "<style type='text/css'>p.a{padding:0;margin:0;width:100%;text-align:Left;";
+sHStyle = sHStyle + "line-height:20px;border-bottom:1px solid #ccc;border-top:1px solid #fff;";
+sHStyle = sHStyle + "background-color:#fafafa;font-size:14px;}</style>";
+
+pButton = "<form><input type='button' value='Print this page' onClick='window.print()'></form>";
+
+
+function Main() {
+ // get user prefs
+  ReadLocalStorage();
+}
+
+function yesNoDone(result) {
+  if(result==6) {
+    HTMLview1.innerHTML = sHStyle;
+    TextArea1.value = "";
+ 
+    zapDB();
+  }
+}
+Form1.onshow=function(){
+    TextArea1.autocapitalize = bAutoCapitalize;
+    TextArea1.autocomplete = bAutoComplete;
+    TextArea1.autocorrect = bAutoCorrect;
+//    if(bGPSCoords == True) {
+//      GPSStart();
+// } else {
+//      GPSStop();
+//    }
+
+    if(bFirstTime == True) {
+ // indicate we have already loaded
+      bFirstTime = False;
+ // connect to DB - create if needed
+      openDB();
+ // DEBUG: create the db & drop any existing data
+ //''initDB() // DEBUG USE ONLY
+ // End DEBUG
+ // clear out the list
+      HTMLview1.innerHTML = sHStyle;
+ // fill the list with DB data
+      readData();
+    }
+}
+
+Button1.onclick=function(){
+   var  dts, txt, dat, geo, geo2;
+
+  if(TextArea1.value == "") {
+    Label1.textContent = "No data entered";
+     return savethefunction_rvar;
+ } else {
+    Label1.textContent = "";
+  }
+
+  if(bShowDate == True) {
+    dts = Format(dateadd("s",0,new Date()),"YYYY-MM-DD HH:NN:SS");
+ } else {
+    dts = Format(dateadd("s",0,new Date()),"HH:NN:SS");
+  }
+
+  txt = TextArea1.value;
+
+//  if(bGPSCoords == True) {
+//      geo = gLat + ", " + gLon;
+//      geo2 = geo +  "<br/>";
+// } else {
+      geo = "";
+      geo2 = "";
+//  }
+
+  if(bAutoClear == True) {
+    TextArea1.value = "";
+  }
+
+  dat = "<p class='a'>" + dts + "<br/>" + geo2 + "<b>" + txt + "</b>";
+
+ // add the formatted data
+  HTMLview1.innerHTML = HTMLview1.innerHTML + dat;
+ // make sure view gets resized
+  HTMLview1.refresh();
+ // scroll to the added data
+  HTMLview1_ref.scrollTo( 0, HTMLview1_ref.maxScrollY, 0 );
+  HTMLview1.refresh();
+
+ // add to db (TODO: geo)
+  insertData(dts, geo, txt);
+}
 
 window.addEventListener('load', function() {
   Form2.style.display = 'block';
@@ -203,7 +318,152 @@ function listData() {
     sqlList=[];
     sqlList[0] = [s,dataLister,skipError];
     Sql(DB, sqlList);
- }
+ }
+ 
+function dataLister(transaction, results) {
+ // called upon completion of SQL Select (from listData)
+ // when data lis needed in a string (for email sending)
+ // populates the global bigString which is read by Form3 functions
+   var  xDTS;
+   var  xGeo;
+   var  xDat;
+   var  crlf;
+
+    crlf = Chr(13)  +  Chr(10);
+    bigString = "";
+
+    DBRecords = results;
+    for   (iRec=0; iRec <= DBRecords.rows.length - 1; iRec++) {
+      xDTS = DBRecords.rows.item(iRec)["dts"];
+      xGeo = DBRecords.rows.item(iRec)["geo"];
+      xDat = DBRecords.rows.item(iRec)["data"];
+      bigString = bigString  +  xDTS  +  crlf;
+
+      if(Trim(xGeo) != "") {
+        bigString = bigString  +  xGeo  +  crlf;
+      }
+      bigString = bigString  +  xDat   +  crlf;
+    }
+
+}
+
+function wrapData(t,g,d) {
+ var  z;
+
+  if(Trim(g) != "") {
+ // we need to add a //Break
+    g = g + "<br>";
+  }
+
+  z = "<p class='a'>" + t + "<br/>" + g + "<b>" + d + "</b>";
+
+ // add the formatted data
+  HTMLview1.innerHTML = HTMLview1.innerHTML + z;
+ // make sure view gets resized
+  HTMLview1.refresh();
+}
+
+function dataHandler(transaction, results) {
+ //Called On completion of Sql command
+  DBRecords = results;
+ //Label1.textContent = "Recs created: " & DBRecords.rows.length 
+}
+
+function SaveLocalStorage() {
+ // now save it for next invocation
+  if(bShowDate == False) {
+      localStorage.showDate = "N";
+ } else {
+      localStorage.showDate = "Y";
+  }
+
+  if(bAutoClear == False) {
+      localStorage.autoClear = "N";
+ } else {
+      localStorage.autoClear = "Y";
+  }
+
+  if(bAutoCapitalize == False) {
+      localStorage.autoCap = "N";
+ } else {
+      localStorage.autoCap = "Y";
+  }
+
+  if(bAutoComplete == False) {
+      localStorage.autoComp = "N";
+ } else {
+      localStorage.autoComp = "Y";
+  }
+
+  if(bAutoCorrect == False) {
+      localStorage.autoCorr = "N";
+ } else {
+      localStorage.autoCorr = "Y";
+  }
+
+  if(bGPSCoords == False) {
+      localStorage.gpsCoords = "N";
+ } else {
+      localStorage.gpsCoords = "Y";
+  }
+}
+
+function ReadLocalStorage() {
+
+ // read saved settings from storage
+  if(localStorage.showDate == "Y") {
+    bShowDate = True;
+ } else {
+    bShowDate = False;
+  }
+
+  if(localStorage.autoClear == "Y") {
+    bAutoClear = True;
+ } else {
+    bAutoClear = False;
+  }
+
+  if(localStorage.autoCap == "Y") {
+    bAutoCapitalize = True;
+ } else {
+    bAutoCapitalize = False;
+  }
+
+  if(localStorage.autoComp == "Y") {
+    bAutoComplete = True;
+ } else {
+    bAutoComplete = False;
+  }
+
+  if(localStorage.autoCorr == "Y") {
+    bAutoCorrect = True;
+ } else {
+    bAutoCorrect = False;
+  }
+
+  if(localStorage.gpsCoords == "Y") {
+    bGPSCoords = True;
+ } else {
+    bGPSCoords = False;
+  }
+ }
+ 
+function initDB() {
+ //This function creates the database if it does not exist already.
+ //If it does exist: *** it clears out all the data ***
+ // this is a debugging tool
+ var  sqlList;
+  DB = SqlOpenDatabase("fnotes.db" ,"1.0" ,"FieldNotes Database");
+  if(DB!=0) {
+    sqlList=[];
+    sqlList[0]=["DROP TABLE notes;" ,,skipError];
+    sqlList[1]=["CREATE TABLE IF NOT EXISTS notes(id INTEGER PRIMARY KEY AUTOINCREMENT, dts TEXT, geo TEXT, data TEXT);"];
+ //Now, execute all the commands!
+    Sql(DB, sqlList);
+  }
+}
+
+
 
 window.addEventListener('load', function() {
   Form1.style.display = 'block';
@@ -214,6 +474,8 @@ window.addEventListener('load', function() {
 
 var NSBCurrentForm = Form1;
 
+var  DB;
+var  DBRecords;
 
 </script>
 
