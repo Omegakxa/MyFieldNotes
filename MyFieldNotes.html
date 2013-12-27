@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>MyFieldNotes</title>
 <meta name="generator" content="NSB/AppStudio 3.3.0.0$mdwk" />
-<meta name="date" content="2013-12-27 20:03:30.392000" />
+<meta name="date" content="2013-12-27 20:27:57.431000" />
 <meta name="version" content="1.0.0" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
@@ -192,6 +192,7 @@ function listData() {
    var  s;
    var  sqlList;
 
+
     s = "SELECT dts, geo, data FROM notes;";
     sqlList=[];
     sqlList[0] = [s,dataLister,skipError];
@@ -291,7 +292,10 @@ function nextAction() {
    var  sLink;
    var  sData;
 
-    document.body.style.cursor = 'default';
+
+      //alert("nextaction 1");
+
+    document.body.style.cursor = '';
 
  // previous function has put data in global (bigString)
  // encode the data for sending per RFC 2368 
@@ -309,14 +313,34 @@ function nextAction() {
 }
 
 function sendLogEmail(strTo, strSubject, strBody){
-    // uses mailto URI
-    // limited to around 50 - 150k in Mobile Safari
-
     var mailto_link = "mailto:" + strTo + "?subject=" +
         encodeURIComponent(strSubject) +
         "&body=" + encodeURIComponent(strBody);
       
     return mailto_link;
+}
+
+function dataLister(transaction, results) {
+   var  xDTS;
+   var  xGeo;
+   var  xDat;
+   var  crlf;
+
+    crlf = Chr(13)  +  Chr(10);
+    bigString = "";
+
+    DBRecords = results;
+    for   (iRec=0; iRec <= DBRecords.rows.length - 1; iRec++) {
+      xDTS = DBRecords.rows.item(iRec)["dts"];
+      xGeo = DBRecords.rows.item(iRec)["geo"];
+      xDat = DBRecords.rows.item(iRec)["data"];
+      bigString = bigString  +  xDTS  +  crlf;
+
+      if(Trim(xGeo) != "") {
+        bigString = bigString  +  xGeo  +  crlf;
+      }
+      bigString = bigString  +  xDat   +  crlf;
+    }
 }
 window.addEventListener('load', function() {
   Form2.style.display = 'block';
@@ -384,18 +408,18 @@ ButtonBar1.onbuttonclick = function(item) { savethefunction_rvar="";
  // export via email
 	ChangeForm(Form3);
  } else {
- // ' Print the innerHTML of HTMLview1
- //	 Dim xobj As var
- //	  xobj = HTMLview1.innerHTML
- //	 Dim NewWin As var
- // ' open a clean new window
- //	  NewWin = window.open("", "FieldNotes Print View")
- // ' load in the HTML data
- //	  NewWin.document.write(xobj)
- //	  NewWin.document.close()
- // ' invoke the print routine - if they have a handler
- //	  NewWin.print()
- //	  NewWin.close()
+ // Print the innerHTML of HTMLview1
+	var  xobj;
+	  xobj = HTMLview1.innerHTML;
+	var  NewWin;
+ // open a clean new window
+	  NewWin = window.open("" , "Meu Notes Visualização de Impressão");
+ // load in the HTML data
+	  NewWin.document.write(xobj);
+	  NewWin.document.close();
+ // invoke the print routine - if they have a handler
+	  NewWin.print();
+	  NewWin.close();
  }
 return savethefunction_rvar; }
 
@@ -451,16 +475,18 @@ Button2.onclick = function() { savethefunction_rvar="";
 	  Label3.textContent = "Voce deve informar o assunto do email";
 	   Return;
 	}
-
+ //MsgBox "button2 1"
  // list out the data from DB
 	listData();
 
+ // MsgBox "button2 2"
  // need to wait/sleep for several seconds
  // so db can gather & format data
   document.body.style.cursor = "wait";
   T=setTimeout(nextAction,2000);
  // nextAction function will take data
  // and format it into a mailto link
+ // MsgBox "button2 3"
 return savethefunction_rvar; }
 
 window.addEventListener('load', function() {
