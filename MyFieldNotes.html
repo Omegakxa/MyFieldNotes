@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>MyFieldNotes</title>
 <meta name="generator" content="NSB/AppStudio 3.3.0.0$mdwk" />
-<meta name="date" content="2013-12-26 19:52:36.720000" />
+<meta name="date" content="2013-12-27 20:03:30.392000" />
 <meta name="version" content="1.0.0" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
@@ -19,55 +19,66 @@
 <script src="nsb/messages.js"></script>
 <link href="nsb/nsbstyle.css" rel="stylesheet">
 <script src="nsb/fastclick.js"></script>
-<script src="nsb/iscroll.js"></script>
 <link href="nsb/css/style.css" rel="stylesheet">
 <script src="nsb/complexfunctions.js"></script>
 <script src="nsb/jquery.js"></script>
 <script src="nsb/jquery.mobile.js"></script>
 <link href="nsb/jquery.mobile.css" rel="stylesheet">
+<script src="nsb/iscroll.js"></script>
 
 
 
 <style type="text/css">
-#HTMLview1_scroller {position: absolute; width:276px; height:192px; left:18px; top:48px;}
-#HTMLview1 {position:absolute; left:0px; top:0px; height:192px; width:276px}
-#Button1 {position:absolute; left:88px; right:auto; top:417px; bottom:auto; height:31px; width:133px}
-#TextArea1 {position:absolute; left:19px; right:auto; top:347px; bottom:auto; height:58px; width:281px}
-#Label1 {position:absolute; left:20px; right:auto; top:318px; bottom:auto; height:20px; width:279px}
-#TitleBar1 {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #CheckBox1 {position:absolute; left:8px; right:auto; top:65px; bottom:auto; height:44px; width:300px}
-#ButtonBar1 {position:absolute; left:0px; top:415px; height:20px; width:100%}
 #Label2 {position:absolute; left:76px; right:auto; top:375px; bottom:auto; height:20px; width:183px}
 #TitleBar2 {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#TitleBar3 {position:absolute; left:261px; right:auto; top:34px; bottom:auto; height:0px; width:0px}
+#ButtonBar1 {position:absolute; left:0px; top:422px; height:20px; width:100%}
+#TitleBar3 {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#MultiInput1_scroller {position: absolute; width:300px; height:10px; left:10px; top:53px}
+#MultiInput1 {position:absolute; left:0px; top:0px; width:300px; height:auto;}
+#MultiInput1 {left:10px; top:53px;}
+#Button2 {position:absolute; left:95px; right:auto; top:187px; bottom:auto; height:24px; width:133px}
+#HTMLview2_scroller {position: absolute; width:271px; height:210px; left:28px; top:218px;}
+#HTMLview2 {position:absolute; left:0px; top:0px; height:210px; width:271px}
+#Label3 {position:absolute; left:23px; right:auto; top:151px; bottom:auto; height:20px; width:281px}
+#HTMLview1_scroller {position: absolute; width:276px; height:250px; left:18px; top:53px;}
+#HTMLview1 {position:absolute; left:0px; top:0px; height:250px; width:276px}
+#Button1 {position:absolute; left:88px; right:auto; top:417px; bottom:auto; height:31px; width:133px}
+#TextArea1 {position:absolute; left:18px; right:auto; top:313px; bottom:auto; height:58px; width:281px}
+#TitleBar1 {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#Label1 {position:absolute; left:19px; right:auto; top:382px; bottom:auto; height:20px; width:287px}
 body * {font-family:helvetica}
 </style>
 </head>
 <body style="margin:0px;">
 <script>window.addEventListener('load', function() {new FastClick(document.body)}, false)</script>
 <div data-role="page" id="Page_MyFieldNotes" data-theme="c" style="">
-<form id="Form1" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script>
-Form1.innerHTML=[  "<div id='HTMLview1_scroller' class=''   style='font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; border-style:groove;' name=''><div id='HTMLview1' style='overflow:auto; background-color:white; height:auto; min-width:276px;'></div></div>",
-  "<input type='button' id='Button1' class='nsbbutton'   style='font-size:12px; font-family:helvetica; font-style:normal; font-weight:bold; color:; background-color:; ' name='' value='Button' data-role='none'>",
-  "<textarea id='TextArea1' class='' name=''  style='text-align:left; font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; background-color:white;-webkit-overflow-scrolling:touch; '   autocorrect='on'  autocomplete='on'  autocapitalize='on'  placeholder='Digite seu texto aqui' data-role='none'></textarea>",
-  "<label id='Label1' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparente; border-style:;border-color:transparent;border-width:1px; ' >...</label>",
-  NSB.HeaderBar_jqm("TitleBar1", "Header Bar", "New", "false", "Settings", "arrow-r", " data-theme=c style='' class=' ' "),
-  ].join('');
-</script>
-</form>
 <form id="Form2" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script>
 Form2.innerHTML=[  NSB.Checkbox('CheckBox1', 300, 'Display Date, Auto-clear text, Auto-capitalize,Auto-complete,Auto-correct,Add GPS Coordinates', style='' ),
-  NSB.ButtonBar("ButtonBar1", "true", "Email,Print", "0", " style= "),
   "<label id='Label2' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparente; border-style:;border-color:transparent;border-width:1px; ' >Export via:</label>",
-  NSB.HeaderBar_jqm("TitleBar2", "Header Bar", "Left", "arrow-l", "", "false", " data-theme=c style='' class=' ' "),
+  NSB.HeaderBar_jqm("TitleBar2", "Configurações", "Voltar", "arrow-l", "", "false", " data-theme=c style='' class=' ' "),
+  NSB.ButtonBar("ButtonBar1", "true", "Email, Imprimir", "0", " style= "),
   ].join('');
 </script>
 </form>
 <form id="Form3" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script>
-Form3.innerHTML=[  NSB.TitleBar("TitleBar3", "Title Bar", "leftnav", "rightnav", "Home,Left", "Home,Right", " style= class=default"),
+Form3.innerHTML=[  NSB.HeaderBar_jqm("TitleBar3", "Email", "Voltar", "arrow-l", "", "false", " data-theme=c style='' class=' ' "),
+  NSB.MultiInput("MultiInput1", 2, "bigfield", "Para,Assunto", "", "texto,texto", "", " style=  ", false),
+  "<input type='button' id='Button2' class='nsbbutton'   style='font-size:12px; font-family:helvetica; font-style:normal; font-weight:bold; color:; background-color:; ' name='' value='Button' data-role='none'>",
+  "<div id='HTMLview2_scroller' class=''   style='font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; border-style:groove;' name=''><div id='HTMLview2' style='overflow:auto; background-color:white; height:auto; min-width:271px;'></div></div>",
+  "<label id='Label3' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparente; border-style:;border-color:transparent;border-width:1px; ' >Etiqueta</label>",
+  ].join('');
+</script>
+</form>
+<form id="Form1" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script>
+Form1.innerHTML=[  "<div id='HTMLview1_scroller' class=''   style='font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; border-style:groove;' name=''><div id='HTMLview1' style='overflow:auto; background-color:white; height:auto; min-width:276px;'></div></div>",
+  "<input type='button' id='Button1' class='nsbbutton'   style='font-size:12px; font-family:helvetica; font-style:normal; font-weight:bold; color:; background-color:; ' name='' value='Adicionar Notes' data-role='none'>",
+  "<textarea id='TextArea1' class='' name=''  style='text-align:left; font-size:13px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; background-color:white;-webkit-overflow-scrolling:touch; '   autocorrect='on'  autocomplete='on'  autocapitalize='on'  placeholder='Digite seu texto aqui' data-role='none'></textarea>",
+  NSB.HeaderBar_jqm("TitleBar1", "Meus Notes", "Novo", "star", "Opções", "arrow-r", " data-theme=c style='' class=' ' "),
+  "<label id='Label1' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparent; border-style:;border-color:transparent;border-width:1px; ' >Label</label>",
   ].join('');
 </script>
 </form>
@@ -82,222 +93,14 @@ if (navigator.userAgent.indexOf('iPad') !== -1) {
   document.getElementsByTagName('head')[0].appendChild(splashscreen);
 }
 
-window.addEventListener('load', function() {
-  Form1.style.display = 'block';
-  if (false) {HTMLview1_ref = new iScroll('HTMLview1_scroller',{ bounce: false, zoom:true });
-    HTMLview1.refresh=function(){setTimeout(HTMLview1_ref.refresh(),100)}}
-  NSB.addProperties(HTMLview1,HTMLview1_scroller);
-  NSB.addProperties(Button1);
-
-  TextArea1.ontouchmove=function(e){e.stopPropagation()};NSB.addProperties(TextArea1);
-
-
-  NSB.addProperties(Label1);
-  NSB.addProperties(TitleBar1);
-  NSB.addDisableProperty(TitleBar1);
-
-  TitleBar1_right.onclick=function(){ChangeForm(Form2)};
-  if(typeof(TitleBar1.onclick)=='function'){
-    if(typeof(TitleBar1_left)!='undefined') TitleBar1_left.onclick=function() {TitleBar1.onclick(TitleBar1_left.getAttribute('nsbvalue'))};
-    if(typeof(TitleBar1_right)!='undefined') TitleBar1_right.onclick=function() {TitleBar1.onclick(TitleBar1_right.getAttribute('nsbvalue'))}};
-  Form1.style.display = 'none';
-}, false);
-Form1.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
-NSB.addProperties(Form1);
-Form1.style.display="block";
-var NSBCurrentForm=Form1;
-var  bShowDate;
-var  bAutoClear;
-var  bAutoCapitalize;
-var  bAutoCorrect;
-var  bAutoComplete;
-var  bGPSCoords;
-var  sHStyle;
-var  pButton;
-var  gps;
-var  gLat;
-var  gLon;
-var  gAcc;
-var  lastRefresh;
-var  bFirstTime;
-var  qq;
-var  bigString;
-
-qq = Chr(34);
-gLat = -79.20989561;
-gLon = 43.73768353;
-gAcc = 0;
-lastRefresh=0;
- // indicate we have started the program
-bFirstTime = True;
-
-sHStyle = "<style type='text/css'>p.a{padding:0;margin:0;width:100%;text-align:Left;";
-sHStyle = sHStyle + "line-height:20px;border-bottom:1px solid #ccc;border-top:1px solid #fff;";
-sHStyle = sHStyle + "background-color:#fafafa;font-size:14px;}</style>";
-
-
-
-
-function frp() {
-   alert("functi frp");
-}
-
-
-function yesNoDone(result) {
-  if(result==6) {
-    HTMLview1.innerHTML = sHStyle;
-    TextArea1.value = "";
- 
-    zapDB();
-  }
-}
-
-//
-Form1.onshow=function(){
-    TextArea1.autocapitalize = bAutoCapitalize;
-    TextArea1.autocomplete = bAutoComplete;
-    TextArea1.autocorrect = bAutoCorrect;
-//    If(bGPSCoords == True) {
-//      GPSStart();
-// } Else {
-//      GPSStop();
-//    }
-
-    if(bFirstTime == True) {
-      bFirstTime = False;
-      
-      openDB();
- 
-      HTMLview1.innerHTML = sHStyle;
- 
-      readData();
-    }
-}
-
-Button1.onclick=function(){
-   var  dts, txt, dat, geo, geo2;
-
-  if(TextArea1.value == "") {
-    Label1.textContent = "No data entered";
-     return;
- } else {
-    Label1.textContent = "";
-  }
-
- 
-//  if(bShowDate == True) {
-//    dts = Format(DateAdd("s",0,new Date()),"YYYY-MM-DD HH:NN:SS");
-// } else {
-    dts = FormatDateTime (new Date(),"yyyy-mm-dd") ;//Format("s",0,new Date()),"HH:NN:SS");
-//  }
-//  dts = ""
-
-  txt = TextArea1.value;
-
-//  if(bGPSCoords == True) {
-//      geo = gLat + ", " + gLon;
-//      geo2 = geo +  "<br/>";
-// } else {
-      geo = "";
-      geo2 = "";
-//  }
-
-  if(bAutoClear == True) {
-    TextArea1.value = "";
-  }
-
-  dat = "<p class='a'>" + dts + "<br/>" + geo2 + "<b>" + txt + "</b>";
-
-
- // add the formatted data
-  HTMLview1.innerHTML = HTMLview1.innerHTML + dat;
- // make sure view gets resized
-  HTMLview1.refresh();
-
- // scroll To the added data
-  // HTMLview1_ref.scrollTo( 0, HTMLview1_ref.maxScrollY, 0 );
-  //HTMLview1_ref.scrollTo(0, HTMLview1.clientHeight);
-  //HTMLview1.refresh();
-
- // add To db (TODO: geo)
-  insertData(dts, geo, txt);
-  
-}
-
-TitleBar1.onclick=function(choice){
-   
-  if(trim(choice) == "New") {
-   var  warnmsg;
-    warnmsg = "Erase the existing notes? All data will be lost!";
-    NSB.MsgBox(yesNoDone,warnmsg, 4+32, "FieldNotes");
-  }
-}
-
-
-
-function insertData(sTime, sGeo, sData) {
-   var  q;
-   var  s;
-   var  sqlList;
-   var  tempTime;
-   var  tempGeo;
-   var  tempData;
-    q = Chr(34);
-    tempTime = q  +  sTime  +  q;
-    tempGeo = q  +  sGeo  +  q;
-    tempData = q  +  sData  +  q;
-    s = "INSERT INTO notes(dts, geo, data) VALUES(" + tempTime + "," + tempGeo + "," + tempData + ");";
+function openDB() {
+ var  sqlList;
+  DB = SqlOpenDatabase("fnotes.db" ,"1.0" ,"FieldNotes Database");
+  if(DB!=0) {
     sqlList=[];
-    sqlList[0] = [s,dataHandler,skipError];
-// alert(s);
+    sqlList[0]=["CREATE TABLE IF NOT EXISTS notes(id INTEGER PRIMARY KEY AUTOINCREMENT, dts TEXT, geo TEXT, data TEXT);" ,,skipError];
     Sql(DB, sqlList);
-}
-
-
-window.addEventListener('load', function() {
-  Form2.style.display = 'block';
-  NSB.Checkbox_init(CheckBox1,300);
-  NSB.addProperties(CheckBox1);
-  NSB.ButtonBar_init(ButtonBar1,'Email,Print');
-  NSB.addProperties(ButtonBar1);
-
-
-  NSB.addProperties(Label2);
-  NSB.addProperties(TitleBar2);
-  NSB.addDisableProperty(TitleBar2);
-  TitleBar2_left.onclick=function(){ChangeForm(Form1)};
-
-  if(typeof(TitleBar2.onclick)=='function'){
-    if(typeof(TitleBar2_left)!='undefined') TitleBar2_left.onclick=function() {TitleBar2.onclick(TitleBar2_left.getAttribute('nsbvalue'))};
-    if(typeof(TitleBar2_right)!='undefined') TitleBar2_right.onclick=function() {TitleBar2.onclick(TitleBar2_right.getAttribute('nsbvalue'))}};
-  Form2.style.display = 'none';
-}, false);
-Form2.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
-NSB.addProperties(Form2);
-
-window.addEventListener('load', function() {
-  Form3.style.display = 'block';
-  NSB.TitleBar_init('TitleBar3','Home,Left','Home,Right');
-  NSB.addProperties(TitleBar3);
-  Form3.style.display = 'none';
-}, false);
-Form3.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
-NSB.addProperties(Form3);
-
-function openDB() {
- var  sqlList;
-  DB = SqlOpenDatabase("fnotes.db" ,"1.0" ,"FieldNotes Database");
-  if(DB!=0) {
-    sqlList=[];
-    sqlList[0]=["CREATE TABLE IF NOT EXISTS notes(id INTEGER PRIMARY KEY AUTOINCREMENT, dts TEXT, geo TEXT, data TEXT);" ,,skipError];
-    Sql(DB, sqlList);
-  }
-}
-
-function Main() {
-  
-   ReadLocalStorage();
-   
+  }
 }
 
 function skipError(transaction, results) {
@@ -318,8 +121,44 @@ function zapDB() {
   }
 }
 
+function wrapData(t,g,d) {
+ var  z;
 
+  if(Trim(g) != "") {
+    g = g + "<br>";
+  }
+
+  z = "<p class='a'>" + t + "<br/>" + g + "<b>" + d + "</b>";
+
+ // add the formatted data
+  HTMLview1.innerHTML = HTMLview1.innerHTML + z;
+ // make sure view gets resized
+  HTMLview1.refresh();
+}
+
+function insertData(sTime, sGeo, sData) {
  
+   var  q;
+   var  s;
+   var  sqlList;
+   var  tempTime;
+   var  tempGeo;
+   var  tempData;
+    q = Chr(34);
+    tempTime = q  +  sTime  +  q;
+    tempGeo = q  +  sGeo  +  q;
+    tempData = q  +  sData  +  q;
+    s = "INSERT INTO notes(dts, geo, data) VALUES(" + tempTime + "," + tempGeo + "," + tempData + ");";
+    sqlList=[];
+    sqlList[0] = [s,dataHandler,skipError];
+
+    Sql(DB, sqlList);
+ }
+ 
+function dataHandler(transaction, results) {
+  DBRecords = results;
+}
+
 function readData() {
    var  q;
    var  s;
@@ -332,8 +171,6 @@ function readData() {
 }
 
 function dataLoader(transaction, results) {
- // callback function
- //Called On completion of Sql SELECT command
  var  xDTS;
  var  xGeo;
  var  xDat;
@@ -346,7 +183,6 @@ function dataLoader(transaction, results) {
     wrapData(xDTS,xGeo,xDat);
   }
 
- // scroll to the added data
   HTMLview1_ref.scrollTo( 0, HTMLview1_ref.maxScrollY, 0 );
   HTMLview1.refresh();
 }
@@ -362,53 +198,44 @@ function listData() {
     Sql(DB, sqlList);
  }
  
-function dataLister(transaction, results) {
- // called upon completion of SQL Select (from listData)
- // when data lis needed in a string (for email sending)
- // populates the global bigString which is read by Form3 functions
-   var  xDTS;
-   var  xGeo;
-   var  xDat;
-   var  crlf;
+function ReadLocalStorage() {
 
-    crlf = Chr(13)  +  Chr(10);
-    bigString = "";
-
-    DBRecords = results;
-    for   (iRec=0; iRec <= DBRecords.rows.length - 1; iRec++) {
-      xDTS = DBRecords.rows.item(iRec)["dts"];
-      xGeo = DBRecords.rows.item(iRec)["geo"];
-      xDat = DBRecords.rows.item(iRec)["data"];
-      bigString = bigString  +  xDTS  +  crlf;
-
-      if(Trim(xGeo) != "") {
-        bigString = bigString  +  xGeo  +  crlf;
-      }
-      bigString = bigString  +  xDat   +  crlf;
-    }
-
-}
-
-function wrapData(t,g,d) {
- var  z;
-
-  if(Trim(g) != "") {
- // we need to add a //Break
-    g = g + "<br>";
+ // read saved settings from storage
+  if(localStorage.showDate == "Y") {
+    bShowDate = True;
+ } else {
+    bShowDate = False;
   }
 
-  z = "<p class='a'>" + t + "<br/>" + g + "<b>" + d + "</b>";
+  if(localStorage.autoClear == "Y") {
+    bAutoClear = True;
+ } else {
+    bAutoClear = False;
+  }
 
- // add the formatted data
-  HTMLview1.innerHTML = HTMLview1.innerHTML + z;
- // make sure view gets resized
-  HTMLview1.refresh();
-}
+  if(localStorage.autoCap == "Y") {
+    bAutoCapitalize = True;
+ } else {
+    bAutoCapitalize = False;
+  }
 
-function dataHandler(transaction, results) {
- //Called On completion of Sql command
-  DBRecords = results;
- Label1.textContent = "Recs created: " & DBRecords.rows.length 
+  if(localStorage.autoComp == "Y") {
+    bAutoComplete = True;
+ } else {
+    bAutoComplete = False;
+  }
+
+  if(localStorage.autoCorr == "Y") {
+    bAutoCorrect = True;
+ } else {
+    bAutoCorrect = False;
+  }
+
+  if(localStorage.gpsCoords == "Y") {
+    bGPSCoords = True;
+ } else {
+    bGPSCoords = False;
+  }
 }
 
 function SaveLocalStorage() {
@@ -450,63 +277,336 @@ function SaveLocalStorage() {
   }
 }
 
-function ReadLocalStorage() {
+function nextAction() {
+ // called on timeout
+ // send data via email
+   var  qq;
+   var  sTo;
+   var  sSubj;
 
+    qq = Chr(34);
+    sTo = MultiInput1.getValue(1);
+    sSubj = MultiInput1.getValue(2);
 
- // read saved settings from storage
-  if(localStorage.showDate == "Y") {
-    bShowDate = True;
- } else {
-    bShowDate = False;
-  }
+   var  sLink;
+   var  sData;
 
-  if(localStorage.autoClear == "Y") {
-    bAutoClear = True;
- } else {
-    bAutoClear = False;
-  }
+    document.body.style.cursor = 'default';
 
-  if(localStorage.autoCap == "Y") {
-    bAutoCapitalize = True;
- } else {
-    bAutoCapitalize = False;
-  }
+ // previous function has put data in global (bigString)
+ // encode the data for sending per RFC 2368 
+    sData = sendLogEmail(sTo, sSubj, bigString);
 
-  if(localStorage.autoComp == "Y") {
-    bAutoComplete = True;
- } else {
-    bAutoComplete = False;
-  }
+ //wrap it in a link
+    sLink = "<h1><a href="  +  qq  +  sData  +  qq  +  ">Click here to activate your email client</a></h1>";
 
-  if(localStorage.autoCorr == "Y") {
-    bAutoCorrect = True;
- } else {
-    bAutoCorrect = False;
-  }
-
-  if(localStorage.gpsCoords == "Y") {
-    bGPSCoords = True;
- } else {
-    bGPSCoords = False;
-  }
+ // display it in HTMLview2
+ // when the user clicks the link it will open their email
+ // client and populate the fields accordingly
+ // if they have a registered mailto protocol handler
+    HTMLview2.innerHTML = sLink;
 
 }
- 
-function initDB() {
- //This function creates the database if it does not exist already.
- //If it does exist: *** it clears out all the data ***
- // this is a debugging tool
- var  sqlList;
-  DB = SqlOpenDatabase("fnotes.db" ,"1.0" ,"FieldNotes Database");
-  if(DB!=0) {
-    sqlList=[];
-    sqlList[0]=["DROP TABLE notes;" ,,skipError];
-    sqlList[1]=["CREATE TABLE IF NOT EXISTS notes(id INTEGER PRIMARY KEY AUTOINCREMENT, dts TEXT, geo TEXT, data TEXT);"];
- //Now, execute all the commands!
-    Sql(DB, sqlList);
-  }
-}
 
+function sendLogEmail(strTo, strSubject, strBody){
+    // uses mailto URI
+    // limited to around 50 - 150k in Mobile Safari
+
+    var mailto_link = "mailto:" + strTo + "?subject=" +
+        encodeURIComponent(strSubject) +
+        "&body=" + encodeURIComponent(strBody);
+      
+    return mailto_link;
+}
+window.addEventListener('load', function() {
+  Form2.style.display = 'block';
+  NSB.Checkbox_init(CheckBox1,300);
+  NSB.addProperties(CheckBox1);
+
+
+  NSB.addProperties(Label2);
+  NSB.addProperties(TitleBar2);
+  NSB.addDisableProperty(TitleBar2);
+  TitleBar2_left.onclick=function(){ChangeForm(Form1)};
+
+  if(typeof(TitleBar2.onclick)=='function'){
+    if(typeof(TitleBar2_left)!='undefined') TitleBar2_left.onclick=function() {TitleBar2.onclick(TitleBar2_left.getAttribute('nsbvalue'))};
+    if(typeof(TitleBar2_right)!='undefined') TitleBar2_right.onclick=function() {TitleBar2.onclick(TitleBar2_right.getAttribute('nsbvalue'))}};
+  NSB.ButtonBar_init(ButtonBar1,'Email, Imprimir');
+  NSB.addProperties(ButtonBar1);
+  Form2.style.display = 'none';
+}, false);
+Form2.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
+NSB.addProperties(Form2);
+
+Form2.onhide = function() { savethefunction_rvar="";
+  SaveLocalStorage();
+return savethefunction_rvar; }
+
+CheckBox1.onchange = function() { savethefunction_rvar="";
+    bShowDate = CheckBox1.getValue(1);
+  bAutoClear = CheckBox1.getValue(2);
+  bAutoCapitalize = CheckBox1.getValue(3);
+  bAutoComplete = CheckBox1.getValue(4);
+  bAutoCorrect = CheckBox1.getValue(5);
+  bGPSCoords = CheckBox1.getValue(6);
+return savethefunction_rvar; }
+
+Form2.onshow = function() { savethefunction_rvar="";
+ // show the config settings
+  if(bShowDate == [True]) {
+	CheckBox1.setValue(1,[True]);
+  }
+
+  if(bAutoClear == [True]) {
+	CheckBox1.setValue(2,[True]);
+  }
+
+  if(bAutoCapitalize == [True]) {
+	CheckBox1.setValue(3,[True]);
+  }
+
+  if(bAutoComplete == [True]) {
+	CheckBox1.setValue(4,[True]);
+  }
+
+  if(bAutoCorrect == [True]) {
+	CheckBox1.setValue(5,[True]);
+  }
+
+  if(bGPSCoords == [True]) {
+	CheckBox1.setValue(6,[True]);
+  }
+return savethefunction_rvar; }
+
+ButtonBar1.onbuttonclick = function(item) { savethefunction_rvar="";
+    if(item == "Email") {
+ // export via email
+	ChangeForm(Form3);
+ } else {
+ // ' Print the innerHTML of HTMLview1
+ //	 Dim xobj As var
+ //	  xobj = HTMLview1.innerHTML
+ //	 Dim NewWin As var
+ // ' open a clean new window
+ //	  NewWin = window.open("", "FieldNotes Print View")
+ // ' load in the HTML data
+ //	  NewWin.document.write(xobj)
+ //	  NewWin.document.close()
+ // ' invoke the print routine - if they have a handler
+ //	  NewWin.print()
+ //	  NewWin.close()
+ }
+return savethefunction_rvar; }
+
+window.addEventListener('load', function() {
+  Form3.style.display = 'block';
+  NSB.addProperties(TitleBar3);
+  NSB.addDisableProperty(TitleBar3);
+  TitleBar3_left.onclick=function(){ChangeForm(Form2)};
+
+  if(typeof(TitleBar3.onclick)=='function'){
+    if(typeof(TitleBar3_left)!='undefined') TitleBar3_left.onclick=function() {TitleBar3.onclick(TitleBar3_left.getAttribute('nsbvalue'))};
+    if(typeof(TitleBar3_right)!='undefined') TitleBar3_right.onclick=function() {TitleBar3.onclick(TitleBar3_right.getAttribute('nsbvalue'))}};
+
+
+  NSB.MultiInput_init('MultiInput1');
+
+  NSB.addProperties(MultiInput1);
+  NSB.addProperties(Button2);
+
+  if (false) {HTMLview2_ref = new iScroll('HTMLview2_scroller',{ bounce: false, zoom:true });
+    HTMLview2.refresh=function(){setTimeout(HTMLview2_ref.refresh(),100)}}
+  NSB.addProperties(HTMLview2,HTMLview2_scroller);
+
+
+  NSB.addProperties(Label3);
+  Form3.style.display = 'none';
+}, false);
+Form3.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
+NSB.addProperties(Form3);
+
+Form3.onshow = function() { savethefunction_rvar="";
+  HTMLview2.innerHTML = "";
+  Label3.textContent = "";
+return savethefunction_rvar; }
+
+Button2.onclick = function() { savethefunction_rvar="";
+ // send data via email
+  var  qq;
+  var  sTo;
+  var  sSubj;
+  var  sBody;
+
+	qq = Chr(34);
+	sTo = MultiInput1.getValue(1);
+	sSubj = MultiInput1.getValue(2);
+
+	if(sTo == "") {
+	  Label3.textContent = "Voce deve informar o destinatario do email";
+	   Return;
+	}
+
+	if(sSubj == "") {
+	  Label3.textContent = "Voce deve informar o assunto do email";
+	   Return;
+	}
+
+ // list out the data from DB
+	listData();
+
+ // need to wait/sleep for several seconds
+ // so db can gather & format data
+  document.body.style.cursor = "wait";
+  T=setTimeout(nextAction,2000);
+ // nextAction function will take data
+ // and format it into a mailto link
+return savethefunction_rvar; }
+
+window.addEventListener('load', function() {
+  Form1.style.display = 'block';
+  if (true) {HTMLview1_ref = new iScroll('HTMLview1_scroller',{ bounce: false, zoom:true });
+    HTMLview1.refresh=function(){setTimeout(HTMLview1_ref.refresh(),100)}}
+  NSB.addProperties(HTMLview1,HTMLview1_scroller);
+  NSB.addProperties(Button1);
+
+  TextArea1.ontouchmove=function(e){e.stopPropagation()};NSB.addProperties(TextArea1);
+  NSB.addProperties(TitleBar1);
+  NSB.addDisableProperty(TitleBar1);
+
+
+  if(typeof(TitleBar1.onclick)=='function'){
+    if(typeof(TitleBar1_left)!='undefined') TitleBar1_left.onclick=function() {TitleBar1.onclick(TitleBar1_left.getAttribute('nsbvalue'))};
+    if(typeof(TitleBar1_right)!='undefined') TitleBar1_right.onclick=function() {TitleBar1.onclick(TitleBar1_right.getAttribute('nsbvalue'))}};
+
+
+  NSB.addProperties(Label1);
+  Form1.style.display = 'none';
+}, false);
+Form1.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};
+NSB.addProperties(Form1);
+var  DB;
+var   DBRecords;
+var   bShowDate;
+var   bAutoClear;
+var   bAutoCapitalize;
+var   bAutoCorrect;
+var   bAutoComplete;
+var   bGPSCoords;
+var   sHStyle;
+var   pButton;
+var   gps;
+var   gLat;
+var   gLon;
+var   gAcc;
+var   lastRefresh;
+var   bFirstTime;
+var   qq;
+var   bigString;
+
+qq = Chr(34);
+gLat = -79.20989561;
+gLon = 43.73768353;
+gAcc = 0;
+lastRefresh=0;
+bFirstTime = True;
+
+sHStyle = "<style type='text/css'>p.a{padding:0;margin:0;width:100%;text-align:Left;";
+sHStyle = sHStyle + "line-height:20px;border-bottom:1px solid #ccc;border-top:1px solid #fff;";
+sHStyle = sHStyle + "background-color:#fafafa;font-size:14px;}</style>";
+
+
+function Main() { savethefunction_rvar="";
+  ReadLocalStorage();
+return savethefunction_rvar; }
+
+Form1.onshow = function() { savethefunction_rvar="";
+  	TextArea1.autocapitalize = bAutoCapitalize;
+	TextArea1.autocomplete = bAutoComplete;
+	TextArea1.autocorrect = bAutoCorrect;
+ //	if bGPSCoords = [True] Then
+ //	  GPSStart()
+ //        else
+ //	  GPSStop()
+ //        End if
+
+	if(bFirstTime) {
+
+	  bFirstTime = False;
+
+	  openDB();
+	  HTMLview1.innerHTML = sHStyle;
+
+	  readData();
+	}
+    Label1.textContent = "";
+return savethefunction_rvar; }
+
+Button1.onclick = function() { savethefunction_rvar="";
+ var  dts, txt, dat, geo, geo2;
+
+  if(TextArea1.value == "") {
+	Label1.textContent = "Não ha dados informados para incluir";
+	 Return;
+ } else {
+	Label1.textContent = "";
+ }
+
+  bShowDate = False;
+  dts = CStr(FormatDateTime(dateadd("s",0,new Date())));
+
+  txt = TextArea1.value;
+ //
+ //  if bGPSCoords = [True] Then
+ //	  geo = gLat & ", " & gLon
+ //	  geo2 = geo & "<br/>"
+ // else
+	  geo = "";
+	  geo2 = "";
+ // End if
+
+
+  if(bAutoClear) {
+	TextArea1.value = "";
+  }
+
+  dat = "<p class='a'>"  +  dts  +  "<br/>"  +  geo2  +  "<b>"  +  txt  +  "</b>";
+
+ // add the formatted data
+  HTMLview1.innerHTML = HTMLview1.innerHTML + dat;
+ // make sure view gets resized
+  HTMLview1.refresh();
+ // scroll to the added data
+  HTMLview1_ref.scrollTo(0, HTMLview1_ref.maxScrollY, 0);
+  HTMLview1.refresh();
+
+ // add to db (TODO: geo)
+  insertData(dts, geo, txt);
+return savethefunction_rvar; }
+
+TitleBar1.onclick = function(choice) { savethefunction_rvar="";
+  if(Trim(choice)==  "Opções") {
+    ChangeForm(Form2);
+  }
+
+  if(Trim(choice) == "Novo") {
+   var  warnmsg;
+    warnmsg = "Apagar as anotações existente?"  +  '\n'  +  "Todos os dados serão apagados!";
+    NSB.MsgBox(yesNoDone,warnmsg, 4+32, "Meu Notes");
+  }
+
+return savethefunction_rvar; }
+
+function yesNoDone(result) { savethefunction_rvar="";
+ // callback function for NSBmsgbox activated in "New" button
+ // this is called when a user wnats
+  if(result==6) {
+	HTMLview1.innerHTML = sHStyle;
+	TextArea1.value = "";
+ // TODO: slick this up so we can have multiple logs
+	zapDB();
+  }
+return savethefunction_rvar; }
 
 
 window.addEventListener('load', function() {
@@ -518,8 +618,6 @@ window.addEventListener('load', function() {
 
 var NSBCurrentForm = Form1;
 
-var  DB;
-var  DBRecords;
 
 </script>
 
