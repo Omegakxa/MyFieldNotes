@@ -1,0 +1,9 @@
+{ "manifest_version": 2,
+  "name": "MyFieldNotes",
+  "version": "1.0.1",
+  "offline_enabled": true,
+  "description": "",
+  "icons": { "16": "nsb/images/16.png",
+            "128": "nsb/images/128.png" },
+  "author": "Copyright 2013 Empresa ABC",
+  "app": {"background": {"scripts": ["background.js"]}}}
