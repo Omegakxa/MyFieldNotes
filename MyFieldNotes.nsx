@@ -669,7 +669,7 @@
       ], 
       "phoneGapLanguages": "en", 
       "theme": "c", 
-      "version": "1.0.3", 
+      "version": "1.0.4", 
       "splashscreen-iPad": "", 
       "manifestName": "OfflineApp", 
       "description": "", 
