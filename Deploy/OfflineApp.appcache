@@ -1,0 +1,28 @@
+CACHE MANIFEST
+imagens\splash1.png
+CACHE:
+nsb/fastclick.js
+nsb/images/icons-36-white.png
+nsb/images/icons-36-black.png
+nsb/nsbstyle.css
+imagens/splash1.png
+nsb/images/ajax-loader.gif
+nsb/css/style.css
+images.jpg
+nsb/hfunc.js
+nsb/images/LauncherIcon57.png
+nsb/messages.js
+nsb/jquery.mobile.js
+nsb/images/checkbox.png
+nsb/jquery.mobile.css
+nsb/images/icons-18-white.png
+nsb/jquery.js
+nsb/complexfunctions.js
+nsb/iscroll.js
+nsb/images/icons-18-black.png
+nsb/images/tributton.png
+
+NETWORK:
+*
+
+# buildtime: 1388191785.11
