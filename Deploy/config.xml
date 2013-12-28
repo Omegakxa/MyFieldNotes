@@ -3,14 +3,14 @@
 xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.nsbasic.MyFieldNotes"
-version = "1.0.2">
+version = "1.0.4">
 
 <name>Minhas Anotações</name>
 <description></description>
 <preference name="phonegap-version" value="3.1.0" />
 
 <preference name="splash-screen-duration" value="500" />
-<gap:splash src="nsb/images/SplashScreen.png"/>
+<gap:splash src="imagens/splash1.png"/>
 
 <!-- Icons: Expand this section with sizes required for platforms you are targeting.-->
 <icon src='icons/ios/icon.png' gap:platform='ios' width='57' height='57' />
