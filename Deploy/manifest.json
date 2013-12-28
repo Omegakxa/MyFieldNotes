@@ -1,6 +1,6 @@
 { "manifest_version": 2,
   "name": "Minhas Anotacoes",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "offline_enabled": true,
   "description": "Aplicativo para Anotacoes Diversas",
   "icons": { "16": "nsb/images/16.png",
