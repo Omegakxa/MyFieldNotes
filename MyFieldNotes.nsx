@@ -41,7 +41,7 @@
           "_uuid": "559ae057e04e44f2941b37b2d1886556", 
           "height": 460, 
           "background": "", 
-          "expanded_pmp": true, 
+          "expanded_pmp": false, 
           "id": "Form2", 
           "openMode": "none", 
           "style": "", 
@@ -64,7 +64,7 @@
               "ongestureend": "", 
               "cached_js_script_hash": "d41d8cd98f00b204e9800998ecf8427e", 
               "bottom": "auto", 
-              "top": 65, 
+              "top": 53, 
               "!type": "Checkbox", 
               "children": [], 
               "width": 300, 
@@ -82,15 +82,15 @@
               "script": "", 
               "expanded_pmp": true, 
               "ontouchstart": "", 
-              "options": "Display Date, Auto-clear text, Auto-capitalize,Auto-complete,Auto-correct,Add GPS Coordinates", 
-              "left": 8
+              "options": "Exibir Data, Auto-Limar Texto, Auto-Capitalizar,Auto-Completar,Auto-Corre\u00e7\u00e3o,GPS Coordinates", 
+              "left": "5"
             }, 
             {
               "right": "auto", 
               "cached_js": "", 
               "onclick": "", 
               "color": "black", 
-              "text": "Export via:", 
+              "text": "Exportar Notas por:", 
               "height": 20, 
               "fontFamily": "helvetica", 
               "id": "Label2", 
@@ -99,10 +99,10 @@
               "ongestureend": "", 
               "cached_js_script_hash": "d41d8cd98f00b204e9800998ecf8427e", 
               "bottom": "auto", 
-              "top": 375, 
+              "top": 383, 
               "!type": "Label", 
               "children": [], 
-              "width": 183, 
+              "width": "300", 
               "fontSize": 16, 
               "onmouseup": "", 
               "onmousemove": "", 
@@ -123,7 +123,7 @@
               "borderWidth": 1, 
               "borderStyle": "", 
               "ontouchstart": "", 
-              "left": 76
+              "left": "5"
             }, 
             {
               "right": "auto", 
@@ -183,7 +183,7 @@
               "ontouchend": "", 
               "bottom": "auto", 
               "ontouchmove": "", 
-              "ButtonNames": "Email, Imprimir", 
+              "ButtonNames": "Email, Impress\u00e3o", 
               "top": 422, 
               "script": "", 
               "!type": "ButtonBar", 
@@ -209,7 +209,7 @@
           "_uuid": "08957d905a9e4258b3067638210f8c12", 
           "height": 460, 
           "background": "", 
-          "expanded_pmp": true, 
+          "expanded_pmp": false, 
           "id": "Form3", 
           "openMode": "none", 
           "style": "", 
@@ -297,7 +297,7 @@
               "expanded_pmp": true, 
               "prompts": "", 
               "ontouchstart": "", 
-              "left": 10
+              "left": "5"
             }, 
             {
               "right": "auto", 
@@ -335,9 +335,9 @@
               "ontouchmove": "", 
               "script": "", 
               "expanded_pmp": true, 
-              "value": "Button", 
+              "value": "Enviar Email", 
               "ontouchstart": "", 
-              "left": 95
+              "left": 90
             }, 
             {
               "right": "auto", 
@@ -358,7 +358,7 @@
               "top": 218, 
               "!type": "HTMLview", 
               "children": [], 
-              "width": 271, 
+              "width": "300", 
               "fontSize": 13, 
               "onmouseup": "", 
               "onmousemove": "", 
@@ -381,7 +381,7 @@
               "expanded_pmp": true, 
               "borderStyle": "groove", 
               "ontouchstart": "", 
-              "left": 28
+              "left": "5"
             }, 
             {
               "right": "auto", 
@@ -400,7 +400,7 @@
               "top": 151, 
               "!type": "Label", 
               "children": [], 
-              "width": 281, 
+              "width": "300", 
               "fontSize": 16, 
               "onmouseup": "", 
               "onmousemove": "", 
@@ -421,7 +421,7 @@
               "borderWidth": 1, 
               "borderStyle": "", 
               "ontouchstart": "", 
-              "left": 23
+              "left": "5"
             }
           ], 
           "width": 320, 
@@ -437,14 +437,14 @@
           "_uuid": "3da0b6231dea4a648dbae1bda0fb5be0", 
           "height": 460, 
           "background": "", 
-          "expanded_pmp": false, 
+          "expanded_pmp": true, 
           "id": "Form1", 
           "openMode": "none", 
           "style": "", 
-          "cached_js_script_hash": "de17d7ca4d951210644ddb0b7e3a6f3c", 
+          "cached_js_script_hash": "1fe12784de8924484121ca7638e81d8d", 
           "language": "BASIC", 
           "onshow": "Form1_onshow()", 
-          "script": "Dim DB\r\nDim  DBRecords\r\nDim  bShowDate;\r\nDim  bAutoClear;\r\nDim  bAutoCapitalize;\r\nDim  bAutoCorrect;\r\nDim  bAutoComplete;\r\nDim  bGPSCoords;\r\nDim  sHStyle;\r\nDim  pButton;\r\nDim  gps;\r\nDim  gLat;\r\nDim  gLon;\r\nDim  gAcc;\r\nDim  lastRefresh;\r\nDim  bFirstTime;\r\nDim  qq;\r\nDim  bigString;\r\n\r\nqq = Chr(34);\r\ngLat = -79.20989561;\r\ngLon = 43.73768353;\r\ngAcc = 0;\r\nlastRefresh=0;\r\nbFirstTime = True;\r\n\r\nsHStyle = \"<style type='text/css'>p.a{padding:0;margin:0;width:100%;text-align:Left;\";\r\nsHStyle = sHStyle + \"line-height:20px;border-bottom:1px solid #ccc;border-top:1px solid #fff;\";\r\nsHStyle = sHStyle + \"background-color:#fafafa;font-size:14px;}</style>\";\r\n\r\n\r\nFunction Main() \r\n  ReadLocalStorage()\r\nEnd Function\r\n\r\nFunction Form1_onshow()\n  \tTextArea1.autocapitalize = bAutoCapitalize\r\n\tTextArea1.autocomplete = bAutoComplete\r\n\tTextArea1.autocorrect = bAutoCorrect\r\n'\tif bGPSCoords = [True] Then\r\n'\t  GPSStart()\r\n'        else\r\n'\t  GPSStop()\r\n'        End if\r\n\r\n\tIf bFirstTime Then\r\n\r\n\t  bFirstTime = False\r\n\r\n\t  openDB()\r\n\t  HTMLview1.innerHTML = sHStyle\r\n\r\n\t  readData()\r\n\tEnd If\r\n    Label1.textContent = \"\"\nEnd Function\n\nFunction Button1_onclick()\n  Dim dts, txt, dat, geo, geo2\r\n\r\n  If TextArea1.value = \"\" Then\r\n\tLabel1.textContent = \"N\u00e3o ha dados informados para incluir\"\r\n\t Return\r\n Else\r\n\tLabel1.textContent = \"\"\r\n End If\r\n\r\n  bShowDate = False\r\n  dts = CStr(FormatDateTime(Now))\r\n\r\n  txt = TextArea1.value\r\n'\r\n'  if bGPSCoords = [True] Then\r\n'\t  geo = gLat & \", \" & gLon\r\n'\t  geo2 = geo & \"<br/>\"\r\n' else\r\n\t  geo = \"\"\r\n\t  geo2 = \"\"\r\n' End if\r\n\r\n\r\n  If bAutoClear Then\r\n\tTextArea1.value = \"\"\r\n  End If\r\n\r\n  dat = \"<p class='a'>\" & dts & \"<br/>\" & geo2 & \"<b>\" & txt & \"</b>\"\r\n\r\n ' add the formatted data\r\n  HTMLview1.innerHTML = HTMLview1.innerHTML + dat\r\n ' make sure view gets resized\r\n  HTMLview1.refresh()\r\n ' scroll to the added data\r\n  HTMLview1_ref.scrollTo(0, HTMLview1_ref.maxScrollY, 0)\r\n  HTMLview1.refresh()\r\n\r\n ' add to db (TODO: geo)\r\n  insertData(dts, geo, txt)\nEnd Function\n\nFunction TitleBar1_onclick(choice)\r\n  If Trim(choice)=  \"Op\u00e7\u00f5es\" Then\r\n    ChangeForm(Form2)\r\n  End If \r\n\r\n  If Trim(choice) = \"Novo\" Then\r\n    Dim warnmsg\r\n    warnmsg = \"Apagar as anota\u00e7\u00f5es existente?\" & vbLF & \"Todos os dados ser\u00e3o apagados!\"\r\n    NSB.MsgBox(yesNoDone,warnmsg, 4+32, \"Meu Notes\")\r\n  End If\r\n\nEnd Function\r\n\r\nFunction yesNoDone(result)\r\n ' callback function for NSBmsgbox activated in \"New\" button\r\n ' this is called when a user wnats\r\n  If result=6 Then\r\n\tHTMLview1.innerHTML = sHStyle\r\n\tTextArea1.value = \"\"\r\n ' TODO: slick this up so we can have multiple logs\r\n\tzapDB()\r\n  End If\r\nEnd Function\n", 
+          "script": "Dim DB\r\nDim  DBRecords\r\nDim  bShowDate;\r\nDim  bAutoClear;\r\nDim  bAutoCapitalize;\r\nDim  bAutoCorrect;\r\nDim  bAutoComplete;\r\nDim  bGPSCoords;\r\nDim  sHStyle;\r\nDim  pButton;\r\nDim  gps;\r\nDim  gLat;\r\nDim  gLon;\r\nDim  gAcc;\r\nDim  lastRefresh;\r\nDim  bFirstTime;\r\nDim  qq;\r\nDim  bigString;\r\n\r\nqq = Chr(34);\r\ngLat = -79.20989561;\r\ngLon = 43.73768353;\r\ngAcc = 0;\r\nlastRefresh=0;\r\nbFirstTime = True;\r\n\r\nsHStyle = \"<style type='text/css'>p.a{padding:0;margin:0;width:100%;text-align:Left;\";\r\nsHStyle = sHStyle + \"line-height:20px;border-bottom:1px solid #ccc;border-top:1px solid #fff;\";\r\nsHStyle = sHStyle + \"background-color:#fafafa;font-size:14px;}</style>\";\r\n\r\n\r\nfunction Main() \r\n  ReadLocalStorage()\r\nEnd function\r\n\r\nfunction Form1_onshow()\n  \tTextArea1.autocapitalize = bAutoCapitalize\r\n\tTextArea1.autocomplete = bAutoComplete\r\n\tTextArea1.autocorrect = bAutoCorrect\r\n'\tif bGPSCoords = [True] Then\r\n'\t  GPSStart()\r\n'        else\r\n'\t  GPSStop()\r\n'        End if\r\n\r\n\tif bFirstTime Then\r\n\r\n\t  bFirstTime = False\r\n\r\n\t  openDB()\r\n\t  HTMLview1.innerHTML = sHStyle\r\n\r\n\t  readData()\r\n\tEnd if\r\n    Label1.textContent = \"\"\nEnd function\n\nfunction Button1_onclick()\n  Dim dts, txt, dat, geo, geo2\r\n\r\n  if TextArea1.value = \"\" Then\r\n\tLabel1.textContent = \"N\u00e3o ha dados informados para incluir\"\r\n\t Return\r\n else\r\n\tLabel1.textContent = \"\"\r\n End if\r\n\r\n  bShowDate = False\r\n  dts = CStr(FormatDateTime(Now))\r\n\r\n  txt = TextArea1.value\r\n'\r\n'  if bGPSCoords = [True] Then\r\n'\t  geo = gLat & \", \" & gLon\r\n'\t  geo2 = geo & \"<br/>\"\r\n' else\r\n\t  geo = \"\"\r\n\t  geo2 = \"\"\r\n' End if\r\n\r\n\r\n  if bAutoClear Then\r\n\tTextArea1.value = \"\"\r\n  End if\r\n\r\n  dat = \"<p class='a'>\" & dts & \"<br/>\" & geo2 & \"<b>\" & txt & \"</b>\"\r\n\r\n ' add the formatted data\r\n  HTMLview1.innerHTML = HTMLview1.innerHTML + dat\r\n ' make sure view gets resized\r\n  HTMLview1.refresh()\r\n ' scroll to the added data\r\n  HTMLview1_ref.scrollTo(0, HTMLview1_ref.maxScrollY, 0)\r\n  HTMLview1.refresh()\r\n\r\n ' add to db (TODO: geo)\r\n  insertData(dts, geo, txt)\nEnd function\n\nfunction TitleBar1_onclick(choice)\r\n  if Trim(choice)=  \"Op\u00e7\u00f5es\" Then\r\n    ChangeForm(Form2)\r\n  End if \r\n\r\n  if Trim(choice) = \"Novo\" Then\r\n    Dim warnmsg\r\n    warnmsg = \"Apagar as anota\u00e7\u00f5es existente?\" & vbLF & \"Todos os dados ser\u00e3o apagados!\"\r\n    NSB.MsgBox(yesNoDone,warnmsg, 4+32, \"Meu Notes\")\r\n  End if\r\n\nEnd function\r\n\r\nfunction yesNoDone(result)\r\n ' callback function for NSBmsgbox activated in \"New\" button\r\n ' this is called when a user wnats\r\n  if result=6 Then\r\n\tHTMLview1.innerHTML = sHStyle\r\n\tTextArea1.value = \"\"\r\n ' TODO: slick this up so we can have multiple logs\r\n\tzapDB()\r\n  End if\r\nEnd function\n", 
           "top": 0, 
           "!type": "Form", 
           "onhide": "", 
@@ -468,7 +468,7 @@
               "top": 53, 
               "!type": "HTMLview", 
               "children": [], 
-              "width": 276, 
+              "width": "300", 
               "fontSize": 13, 
               "onmouseup": "", 
               "onmousemove": "", 
@@ -491,7 +491,7 @@
               "expanded_pmp": true, 
               "borderStyle": "groove", 
               "ontouchstart": "", 
-              "left": 18
+              "left": "5"
             }, 
             {
               "right": "auto", 
@@ -529,7 +529,7 @@
               "ontouchmove": "", 
               "script": "", 
               "expanded_pmp": true, 
-              "value": "Adicionar Notes", 
+              "value": "Adicionar Nota", 
               "ontouchstart": "", 
               "left": 88
             }, 
@@ -550,7 +550,7 @@
               "autocorrect": "on", 
               "!type": "Textarea", 
               "id": "TextArea1", 
-              "width": 281, 
+              "width": "300", 
               "readonly": "", 
               "onselect": "", 
               "onmousemove": "", 
@@ -579,7 +579,7 @@
               "autocomplete": "on", 
               "ontouchstart": "", 
               "top": 313, 
-              "left": 18
+              "left": "5"
             }, 
             {
               "right": "auto", 
@@ -616,7 +616,7 @@
               "expanded_pmp": true, 
               "rightButtonIcon": "arrow-r", 
               "leftChangeForm": "", 
-              "title": "Meus Notes", 
+              "title": "Minhas Notas", 
               "ontouchstart": "", 
               "left": 75
             }, 
@@ -637,7 +637,7 @@
               "top": 382, 
               "!type": "Label", 
               "children": [], 
-              "width": 287, 
+              "width": "300", 
               "fontSize": 16, 
               "onmouseup": "", 
               "onmousemove": "", 
@@ -656,9 +656,9 @@
               "alignVertical": "top", 
               "expanded_pmp": true, 
               "borderWidth": 1, 
-              "borderStyle": "", 
+              "borderStyle": "solid", 
               "ontouchstart": "", 
-              "left": 19
+              "left": "5"
             }
           ], 
           "width": 320, 
@@ -669,7 +669,7 @@
       ], 
       "phoneGapLanguages": "en", 
       "theme": "c", 
-      "version": "1.0.5", 
+      "version": "1.0.6", 
       "splashscreen-iPad": "", 
       "manifestName": "OfflineApp", 
       "description": "Aplicativo para Anotacoes Diversas", 
@@ -698,7 +698,7 @@
   "deploy_user": false, 
   "_uuid": "630e4f3e47f746bbb6e077a35363d4f3", 
   "deploy_password": "", 
-  "_tempdir": "c:\\users\\fabio\\appdata\\local\\temp\\tmpsimd_x", 
+  "_tempdir": "c:\\users\\fabio\\appdata\\local\\temp\\tmpgyeqwe", 
   "deploy_localPath": "", 
   "deploy_path": "", 
   "id": "", 

@@ -271,7 +271,7 @@ window.addEventListener('load', function() {
   if(typeof(TitleBar2.onclick)=='function'){
     if(typeof(TitleBar2_left)!='undefined') TitleBar2_left.onclick=function() {TitleBar2.onclick(TitleBar2_left.getAttribute('nsbvalue'))};
     if(typeof(TitleBar2_right)!='undefined') TitleBar2_right.onclick=function() {TitleBar2.onclick(TitleBar2_right.getAttribute('nsbvalue'))}};
-  NSB.ButtonBar_init(ButtonBar1,'Email, Imprimir');
+  NSB.ButtonBar_init(ButtonBar1,'Email, Impressão');
   NSB.addProperties(ButtonBar1);
   Form2.style.display = 'none';
 }, false);
